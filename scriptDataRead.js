@@ -33,7 +33,7 @@ function processData(csvData) {
     tableBody.innerHTML = "";
   
     const headers = ["Category", "Value"]; // First row contains the column headers
-    const dataRows = csvData.slice(1); // Exclude the first row (header) from the data rows
+    const dataRows = csvData.split('\n').slice(1); // Split the CSV string into an array of rows and exclude the header row
   
     // Create header row
     const headerRow = document.createElement("tr");
@@ -45,7 +45,7 @@ function processData(csvData) {
     tableBody.appendChild(headerRow);
   
     const valueColumn = [];
-    for (const row of dataRows) { 
+    for (const row of dataRows) {
       const columns = row.split(',');
       if (columns.length > 0) {
         valueColumn.push(parseInt(columns[1]));
@@ -57,27 +57,27 @@ function processData(csvData) {
     const newCellAlpha = document.createElement("td");
     newCellAlpha.textContent = "Alpha";
     newRowAlpha.appendChild(newCellAlpha);
-    newCellAlpha = document.createElement("td");
-    newCellAlpha.textContent = valueColumn[4] + valueColumn[19];
-    newRowAlpha.appendChild(newCellAlpha);
+    const newCellAlphaValue = document.createElement("td");
+    newCellAlphaValue.textContent = valueColumn[4] + valueColumn[19];
+    newRowAlpha.appendChild(newCellAlphaValue);
     tableBody.appendChild(newRowAlpha);
   
     const newRowBeta = document.createElement("tr");
     const newCellBeta = document.createElement("td");
     newCellBeta.textContent = "Beta";
     newRowBeta.appendChild(newCellBeta);
-    newCellBeta = document.createElement("td");
-    newCellBeta.textContent = valueColumn[14] / valueColumn[6];
-    newRowBeta.appendChild(newCellBeta);
+    const newCellBetaValue = document.createElement("td");
+    newCellBetaValue.textContent = valueColumn[14] / valueColumn[6];
+    newRowBeta.appendChild(newCellBetaValue);
     tableBody.appendChild(newRowBeta);
   
     const newRowCharlie = document.createElement("tr");
     const newCellCharlie = document.createElement("td");
     newCellCharlie.textContent = "Charlie";
     newRowCharlie.appendChild(newCellCharlie);
-    newCellCharlie = document.createElement("td");
-    newCellCharlie.textContent = valueColumn[12] * valueColumn[11];
-    newRowCharlie.appendChild(newCellCharlie);
+    const newCellCharlieValue = document.createElement("td");
+    newCellCharlieValue.textContent = valueColumn[12] * valueColumn[11];
+    newRowCharlie.appendChild(newCellCharlieValue);
     tableBody.appendChild(newRowCharlie);
   }
 
