@@ -13,9 +13,10 @@ function populateTable(csvData) {
         th.textContent = header;
         headerRow.appendChild(th);
     });
-    tableBody.appendChild(headerRow)
+    tableBody.appendChild(headerRow);
 
-    csvData.forEach((row) => {
+    // Create data rows
+    dataRows.forEach((row) => {
         const newRow = document.createElement("tr");
         row.forEach((cell) => {
             const newCell = document.createElement("td");
