@@ -6,5 +6,38 @@ h1{
     text-align: center;
     width: 50vw;
     border-radius: 20px;
-    padding: 1%;
+    padding: 1%; 
+}
+h2{
+    margin-left: auto;
+    margin-right:auto;
+    text-align: center;
+}
+body{
+background-color:#808B96 
+}
+table{
+border-radius:20px;
+margin-left:auto;
+margin-right:auto;
+background-color:#1C2833;
+padding:10px;
+
+    
+}
+td,th{
+border-radius:5px;
+color:whitesmoke;
+text-align:center;
+width:30%
+}
+
+td {
+  border: 1px solid #ccc; /* Optional: Add borders to cells for better visualization */
+  padding: 12px; /* Optional: Add padding to cells for better spacing */
+    background-color:#808B96;
+    transition: transform 0.3s ease;
+}
+td:hover{
+transform: scale(1.2);
 }
