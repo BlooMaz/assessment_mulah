@@ -28,58 +28,52 @@ function populateTable(csvData) {
 }
 
 
+// Function to read the CSV file and populate the table
 function processData(csvData) {
     const tableBody = document.querySelector("#data-processed tbody");
     tableBody.innerHTML = "";
-  
-    const headers = ["Category", "Value"]; // First row contains the column headers
-    const dataRows = csvData.split('\n').slice(1); // Split the CSV string into an array of rows and exclude the header row
-  
+
+    const headers = ["Category","Value"]; // First row contains the column headers
+    const dataRows = csvData.slice(1); // Exclude the first row (header) from the data rows
+    const Rows = dataRows.split('\n');
     // Create header row
     const headerRow = document.createElement("tr");
     headers.forEach((header) => {
-      const th = document.createElement("th");
-      th.textContent = header;
-      headerRow.appendChild(th);
+        const th = document.createElement("th");
+        th.textContent = header;
+        headerRow.appendChild(th);
     });
     tableBody.appendChild(headerRow);
-  
-    const valueColumn = [];
-    for (const row of dataRows) {
-      const columns = row.split(',');
-      if (columns.length > 0) {
-        valueColumn.push(parseInt(columns[1]));
+
+    const valueColumn1 = [];
+    for (const row of Rows) {
+        const columns = row.split(',');
+        if (columns.length > 0) {
+          valueColumn.push(parseInt(columns[1]));
+        }
       }
-    }
-  
-    // Create and append rows for "Alpha", "Beta", and "Charlie"
-    const newRowAlpha = document.createElement("tr");
-    const newCellAlpha = document.createElement("td");
-    newCellAlpha.textContent = "Alpha";
-    newRowAlpha.appendChild(newCellAlpha);
-    const newCellAlphaValue = document.createElement("td");
-    newCellAlphaValue.textContent = valueColumn[4] + valueColumn[19];
-    newRowAlpha.appendChild(newCellAlphaValue);
-    tableBody.appendChild(newRowAlpha);
-  
-    const newRowBeta = document.createElement("tr");
-    const newCellBeta = document.createElement("td");
-    newCellBeta.textContent = "Beta";
-    newRowBeta.appendChild(newCellBeta);
-    const newCellBetaValue = document.createElement("td");
-    newCellBetaValue.textContent = valueColumn[14] / valueColumn[6];
-    newRowBeta.appendChild(newCellBetaValue);
-    tableBody.appendChild(newRowBeta);
-  
-    const newRowCharlie = document.createElement("tr");
-    const newCellCharlie = document.createElement("td");
-    newCellCharlie.textContent = "Charlie";
-    newRowCharlie.appendChild(newCellCharlie);
-    const newCellCharlieValue = document.createElement("td");
-    newCellCharlieValue.textContent = valueColumn[12] * valueColumn[11];
-    newRowCharlie.appendChild(newCellCharlieValue);
-    tableBody.appendChild(newRowCharlie);
-  }
+    const newRow = document.createElement("tr");
+    const newCell = document.createElement("td");
+    newCell.textContent = "Alpha"
+    newRow.appendChild(newCell);
+    newCell.textContent = valueColumn[4] + valueColumn[19]
+    newRow.appendChild(newCell);
+    tableBody.appendChild(newRow);
+
+    newCell.textContent = "Beta"
+    newRow.appendChild(newCell);
+    newCell.textContent = valueColumn[14] / valueColumn[6]
+    newRow.appendChild(newCell);
+    tableBody.appendChild(newRow);
+
+    newCell.textContent = "Charlie"
+    newRow.appendChild(newCell);
+    newCell.textContent = valueColumn[12] * valueColumn[11]
+    newRow.appendChild(newCell);
+    tableBody.appendChild(newRow);
+
+    
+}  
 
 
 // Function to fetch the CSV file
@@ -90,7 +84,7 @@ function fetchCSVAndPopulateTable() {
             const rows = csvText.split("\n");
             const csvData = rows.map((row) => row.split(","));
             populateTable(csvData);
-            processData(csvData);
+            processData(csvData)
         })
         .catch((error) => console.error("Error fetching CSV:", error));
 }
