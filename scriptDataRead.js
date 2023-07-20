@@ -49,7 +49,7 @@ function processData(csvData) {
         
         row.forEach((cell) => {
             if(!cell.includes("A")){
-                valueColumn[i]=cell;
+                valueColumn[i]=parseInt(cell);
                 i++;
             }
             
