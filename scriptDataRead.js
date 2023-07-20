@@ -35,7 +35,7 @@ function processData(csvData) {
 
     const headers = ["Category","Value"]; // First row contains the column headers
     const dataRows = csvData.slice(1); // Exclude the first row (header) from the data rows
-    const Rows = dataRows.split('\n');
+    const valueColumn =[];
     // Create header row
     const headerRow = document.createElement("tr");
     headers.forEach((header) => {
@@ -44,14 +44,19 @@ function processData(csvData) {
         headerRow.appendChild(th);
     });
     tableBody.appendChild(headerRow);
-
-    const valueColumn1 = [];
-    for (const row of Rows) {
-        const columns = row.split(',');
-        if (columns.length > 0) {
-          valueColumn.push(parseInt(columns[1]));
-        }
-      }
+    var i=0;
+    dataRows.forEach((row) => {
+        
+        row.forEach((cell) => {
+            if(!cell.contains("A")){
+                valueColumn[i]=cell;
+                i++;
+            }
+            
+        });
+        
+    });
+    
     const newRow = document.createElement("tr");
     const newCell = document.createElement("td");
     newCell.textContent = "Alpha"
