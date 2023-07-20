@@ -65,17 +65,21 @@ function processData(csvData) {
     newRow.appendChild(newCell);
     tableBody.appendChild(newRow);
 
-    newCell.textContent = "Beta"
-    newRow.appendChild(newCell);
-    newCell.textContent = valueColumn[14] / valueColumn[6]
-    newRow.appendChild(newCell);
-    tableBody.appendChild(newRow);
+    const newRow1 = document.createElement("tr");
+    const newCell1 = document.createElement("td");
+    newCell1.textContent = "Beta"
+    newRow1.appendChild(newCell1);
+    newCell1.textContent = valueColumn[14] / valueColumn[6]
+    newRow1.appendChild(newCell1);
+    tableBody.appendChild(newRow1);
 
-    newCell.textContent = "Charlie"
-    newRow.appendChild(newCell);
-    newCell.textContent = valueColumn[12] * valueColumn[11]
-    newRow.appendChild(newCell);
-    tableBody.appendChild(newRow);
+    const newRow2 = document.createElement("tr");
+    const newCell2 = document.createElement("td");
+    newCell2.textContent = "Charlie"
+    newRow2.appendChild(newCell2);
+    newCell2.textContent = valueColumn[12] * valueColumn[11]
+    newRow2.appendChild(newCell2);
+    tableBody.appendChild(newRow2);
 
     
 }  
