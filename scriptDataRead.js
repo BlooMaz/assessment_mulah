@@ -48,7 +48,7 @@ function processData(csvData) {
     dataRows.forEach((row) => {
         
         row.forEach((cell) => {
-            if(!cell.contains("A")){
+            if(!cell.includes("A")){
                 valueColumn[i]=cell;
                 i++;
             }
