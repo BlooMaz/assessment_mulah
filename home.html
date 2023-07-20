@@ -6,30 +6,21 @@
       </head>
 <body>
 <h1>Mulah technologies</h1>
-<table id = "tableRead"></table>
+<table id="data-table">
+    <thead>
+        <tr>
+            <th>Index #</th>
+            <th>Value</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
 
 
-<script>
-fetch('Table_input.csv')
-.then(response => response.text())
-.then(csvData =>{
-    const rows = csvData.split('\n');
-    const tableRead = document.getElementById("tableRead");   
-
-tableRead.innerHTML = "<table>";
-
-for (let i = 0; i < rows.length; i++) {
-    tableRead.innerHTML += "<tr>";
-    const columns = rows[i].split(',');
-    for (let j = 0; j < columns.length; j++) {
-        tableRead.innerHTML += `<td>${columns[j]}</td>`;
-    }
-    tableRead.innerHTML += "</tr>";
-}
-})
-tableRead.innerHTML += "</table>";
-
-</script>
+<script src ="scriptDataRead.js"></script>
 
 </body>
 </html>
